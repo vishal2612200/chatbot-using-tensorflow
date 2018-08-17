@@ -50,12 +50,12 @@ def clean_text(text):
 # cleaning the questions
 clean_questions = []
 for question in questions:
-    clean_questions.append(clean_questions(question))
+    clean_questions.append(clean_text(question))
 
 #cleaning the answer
 clean_answers = []
 for answer in answers:
-    clean_answers.append(clean_questions(answer))
+    clean_answers.append(clean_text(answer))
 
 #creating a dictionary that maps each word to its number of occurances
 word2count = {}
