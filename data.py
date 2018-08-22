@@ -91,7 +91,7 @@ for word,count in word2count.item():
         word_number += 1 
 
 #adding the last token to these two dictionaries
-tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS']
+tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS>']
 for token in tokens:
     questionwords2int[token] = len(questionwords2int) + 1
 for token in tokens:
@@ -121,16 +121,16 @@ for answer in clean_answers:
     ints=[]
     for word in answer.split():
         if word not in answerawords2int:
-            ints.append(answerawords2int['<OUT>'])
+            ints.append(answerwords2int['<OUT>'])
         else:
-            ints.append (answerawords2int[word])
+            ints.append (answerwords2int[word])
     answer_into_int.append(ints)
 
 #sorting questions and answers by the length of questions
 sorted_clean_questions = []
 sorted_clean_answers = []
 for length in range(1, 26):
-    for i in enumurate(questions_into_int):
+    for i in enumerate(questions_into_int):
         if len(i[1]) == length:
             sorted_clean_questions.append(questions_into_int[i[0]])
             sorted_clean_answers.append(question_into_int[i[0]])
